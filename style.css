@@ -6,4 +6,26 @@
 
 body {
     height: 100vh;
+    background-color: darkgray;
+    font-size: 4em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    height: 100vh;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container div {
+    width: 100px;
+    background-color: darkcyan;
+    height: 50vh;
+    width: 50vw;
+    border-radius: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
