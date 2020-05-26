@@ -6,7 +6,7 @@
 
 body {
     height: 100vh;
-    background-color: darkgray;
+    background-color: lightgray;
     font-size: 4em;
     font-family: 'Roboto', sans-serif;
 }
@@ -28,4 +28,5 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 10px 10px 10px 10px darkgray;
 }
