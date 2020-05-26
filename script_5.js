@@ -10,9 +10,10 @@ function start_time() {
     [ hour, minutes, seconds ] = time.split(':') // Divide o valor da variável time em horas 00, minutos 00 e segundos
     
 
-    valor = change_minutes_and_seconds(seconds, minutes)
+    valor = change_minutes_and_seconds(seconds, minutes, hour)
     seconds = valor[0]
     minutes = valor[1]
+    hour = valor[2]
 
 
     time = [hour, minutes, seconds] // Salva novamente no Array Time os valores alterados
@@ -24,33 +25,38 @@ function start_time() {
     setTimeout(start_time, 1000)
 }
 
-function change_minutes_and_seconds(seconds_to_change, minutes_to_change) {
+function change_minutes_and_seconds(seconds_to_change, minutes_to_change, hour_to_change) {
     let second = parseInt(seconds_to_change) // Transforma segundos de String para Integer
     let minute = parseInt(minutes_to_change)
-    let number_of_seconds_minutes = 59
+    let hour = parseInt(hour_to_change)
 
-    if (second >= number_of_seconds_minutes) { // Faz a contagem dos segundos
-        second = 0
-    } else {
-        second += 1
+
+    second = time_smaller_ten(second)
+
+    if (second == '00') { // Faz a contagem dos segundos
+        minute = time_smaller_ten(minute)
     }
 
-    if (second == 0) { // Faz a contagem dos segundos
-        if (minute >= number_of_seconds_minutes) { // Faz a contagem dos segundos
-            minute = 0
-        } else {
-            minute += 1
-        }
+    if (minute == '00' && second == '00') { // Faz a contagem dos segundos
+        hour = time_smaller_ten(hour)
     }
 
     second = second < 10 ? '0'+second.toString() : second.toString()
     minute = minute < 10 ? '0'+minute.toString() : minute.toString()
+    hour = hour < 10 ? '0'+hour.toString() : hour.toString()
 
-    return [second, minute]
+    return [second, minute, hour]
 }
 
-function time_smaller_ten(time) {
-    console.log('')
+function time_smaller_ten(time_unit) {
+    let number_of_seconds_minutes = 59
+    if (time_unit >= number_of_seconds_minutes) { // Faz a contagem dos segundos
+        time_unit = 0
+    } else {
+        time_unit += 1
+    }
+
+    return time_unit
 }
 
 setTimeout(start_time, 1000)
