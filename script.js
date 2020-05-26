@@ -1,6 +1,6 @@
 const timer = document.getElementById('timer')
 
-timer.innerHTML = "00:00:00";
+timer.innerHTML = "00:00:10";
 
 function start_time() {
     let time = timer.innerHTML // Salva na variável "time" o valor do InnerHTML do elmento timer "00:00:00"
